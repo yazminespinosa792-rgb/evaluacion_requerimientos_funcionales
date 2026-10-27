@@ -1,7 +1,14 @@
 import ollama
 
 #EJEMPLO#
-requerimiento = "El alumno ingresa su email y contraseña y el sistema autentifica los datos."
+requerimiento = (
+    "El usuario ingresa su matrícula y contraseña, posteriormente presiona el botón de iniciar sesión."
+    "el sistema de autenticación"
+    "debe"
+    "validar silos datos son correctos, el sistema permitirá el acceso al usuario segun su rol" 
+    "en la base de datos en la tabla de usuarios"
+    "verifica que exista un usuario un usuario con esa matrícula y contraseña"
+)
 response = ollama.systemone(
     model="d1-omni:600m",
     state=requerimiento,
