@@ -1,13 +1,12 @@
-#transcribir codigo#
 import ollama
 
 requerimiento = (
-    "El usuario ingresa su matrícula y contraseña, posteriormente presiona el botón de iniciar sesión."
-    "el sistema de autenticación"
+    "Cuando el entrenador programa una nueva práctica en el calendario."
+    "el módulo de entrenamientos"
     "debe"
-    "validar silos datos son correctos, el sistema permitirá el acceso al usuario segun su rol" 
-    "en la base de datos en la tabla de usuarios"
-    "verifica que exista un usuario un usuario con esa matrícula cleary contraseña"
+    "de registrar una nueva sesión de entrenamiento" 
+    "la fecha, hora y rama correspondiente" 
+    "habilitando la sesión para realizar el registro de sistema"
 )
 response = ollama.systemone(
     model="d1-omni:600m",
@@ -26,7 +25,7 @@ response = ollama.systemone(
             "type": "noul",
             "instructions": "¿El requerimiento funcinal tiene un sujeto?",
             "criteria":{
-                "true": "Especifica el sistema que accion debe de realizar el sujeto.",
+                "true": "Especifica el sistema que acción debe de realizar el sujeto.",
                 "false": "El requerimiento no menciona que acción debe realizar el sujeto."
             },
         },
@@ -62,7 +61,7 @@ response = ollama.systemone(
             "type": "noul",
             "instructions": "¿Se encuentra el criterio de dicho requerimiento?",
             "criteria":{
-                "true": "Especifica el criterio que se tomará en cuaenta para el requerimiento.",
+                "true": "Especifica el criterio que se tomará en cuenta para el requerimiento.",
                 "false": "No especificael criterio."
             },
         },
