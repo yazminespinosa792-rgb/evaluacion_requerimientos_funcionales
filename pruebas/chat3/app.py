@@ -1,9 +1,18 @@
 import ollama
 
 requerimiento = (
+<<<<<<< HEAD
     """Cuando el entrenador programa una nueva práctica en el calendario,
     el módulo de entrenamientos debe registrar una nueva sesión de entrenamiento
     con la fecha y hora, habilitando la sesión para realizar el registro de asistencias."""
+=======
+    "Cuando el entrenador programa una nueva práctica en el calendario."
+    "el módulo de entrenamientos"
+    "debe"
+    "de registrar una nueva sesión de entrenamiento" 
+    "la fecha, hora y rama correspondiente" 
+    "habilitando la sesión para realizar el registro de sistema"
+>>>>>>> 4ef2bbd8813122717f56d7771880135469fece20
 )
 
 response = ollama.systemone(
@@ -24,7 +33,7 @@ response = ollama.systemone(
             "type": "noul",
             "instructions": "¿El requerimiento funcinal tiene un sujeto?",
             "criteria":{
-                "true": "Especifica el sistema que accion debe de realizar el sujeto.",
+                "true": "Especifica el sistema que acción debe de realizar el sujeto.",
                 "false": "El requerimiento no menciona que acción debe realizar el sujeto."
             },
         },
@@ -64,7 +73,7 @@ response = ollama.systemone(
             "type": "noul",
             "instructions": "¿Se encuentra el criterio de dicho requerimiento?",
             "criteria":{
-                "true": "Especifica el criterio que se tomará en cuaenta para el requerimiento.",
+                "true": "Especifica el criterio que se tomará en cuenta para el requerimiento.",
                 "false": "No especificael criterio."
             },
         },
