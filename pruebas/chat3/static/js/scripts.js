@@ -1,8 +1,18 @@
-async function evaluacion(){
-    try{
+function seleccionarOpcion(tipo) {
+    console.log("Opción seleccionada:", tipo);
+    const elemento = document.getElementById(tipo);
+    if (elemento) {
+        alert(`Seleccionaste el campo: ${tipo}\nValor actual: ${elemento.innerText}`);
+    }
+}
 
-        const uri = "https://localhost:11434/v1/systemone"; 
-        const requerimiento = "Cuando el entrenador programa una nueva práctica en el calendario, el módulo de entrenamientos debe registrar una nueva sesión de entrenamiento con la fecha y hora, habilitando la sesión para realizar el registro de asistencias.";
+async function evaluacion() {
+    try {
+        const uri = "/evaluar";
+        
+        const requerimiento = `Cuando el entrenador programa una nueva práctica en el calendario,
+        el módulo de entrenamientos debe registrar una nueva sesión de entrenamiento con la fecha
+        y hora, habilitando la sesión para realizar el registro de asistencias.`;
 
         const data = {
             "state": requerimiento,
@@ -58,6 +68,14 @@ async function evaluacion(){
             }
         };
 
+        // Mostrar estado de carga mientras Ollama procesa (tarda aprox 10s)
+        document.getElementById("condicion").innerText = "Cargando...";
+        document.getElementById("sujeto").innerText = "Cargando...";
+        document.getElementById("verbo").innerText = "Cargando...";
+        document.getElementById("accion").innerText = "Cargando...";
+        document.getElementById("objeto").innerText = "Cargando...";
+        document.getElementById("criterio").innerText = "Cargando...";
+
         const response = await fetch(
             uri,
             {
@@ -69,20 +87,28 @@ async function evaluacion(){
             }
         );
 
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+
         const resultado = await response.json();
 
         console.log("Conexion con la API exitosa: ", resultado);
 
-        // Se colocan los valores numéricos correspondientes dentro de cada botón
         document.getElementById("condicion").innerText = resultado.answers.condicion.noul;
         document.getElementById("sujeto").innerText = resultado.answers.condicion_1.noul;
         document.getElementById("verbo").innerText = resultado.answers.condicion_2.noul;
         document.getElementById("accion").innerText = resultado.answers.condicion_3.noul;
         document.getElementById("objeto").innerText = resultado.answers.condicion_4.noul;
         document.getElementById("criterio").innerText = resultado.answers.condicion_5.noul;
-        
-    } catch (error){
+
+    } catch (error) {
         console.log("Ups algo fallo", error.message);
-        throw error;
+        document.getElementById("condicion").innerText = "Error";
+        document.getElementById("sujeto").innerText = "Error";
+        document.getElementById("verbo").innerText = "Error";
+        document.getElementById("accion").innerText = "Error";
+        document.getElementById("objeto").innerText = "Error";
+        document.getElementById("criterio").innerText = "Error";
     }
-}pruebas 
+}

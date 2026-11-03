@@ -1,0 +1,54 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    max-width: 500px;
+    margin: 30px auto; /* centra en pantalla */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Título y texto del requerimiento */
+p {
+    font-size: 14px;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Botón principal de Evaluación */
+button#evaluar {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+    background-color: aqua;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+button#evaluar:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+/* Botones de respuesta (condicion, sujeto, verbo, accion, objeto, criterio) */
+button:not(#evaluar) {
+    display: block;
+    width: 100%;
+    min-height: 35px;
+    padding: 8px;
+    font-size: 14px;
+    background-color: blueviolet;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+button:not(#evaluar):hover {
+    background-color: #e0e0e0;
+}
